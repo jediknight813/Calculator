@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="syles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Calculator </title>
+</head>
+<body> 
+    <h1> Calculator</h1>
+
+    
+    <style>
+        body {
+            background: rgb(148, 143, 143);
+        }
+    </style>
+
+        <div class="buttongrid"> 
+            <button class="buttonoperator"> + </button>
+            <button class="buttonoperator"> - </button>
+            <button onclick="reset()" class="buttonoperator"> reset </button>
+            <button class="button"> 1 </button>
+            <button class="button"> 2 </button>
+            <button class="buttonoperator"> * </button>
+            <button class="button"> 3 </button>
+            <button class="button"> 4 </button>
+            <button class="buttonoperator"> ÷ </button>
+            <button class="button"> 5 </button>
+
+            <button class="button">  6 </button>
+            <button onclick="calculate()" class="equalsbutton"> = </button>
+            <button class="button"> 7 </button>
+            <button class="button"> 8 </button>
+            <button class="button"> 9 </button>
+            <button class="button"> 0 </button>
+
+
+        </div>
+
+        <div class="screen"> 
+            
+            <h1 id="screen" class="screentext"></h1>
+        
+        
+        </div>
+        <h1 id="display" class="calculatorbackground"></h1>
+
+
+        <h1 class="footer"> by jediknight813 on github </h1>
+
+    <script>
+
+        var previousOperand = ''
+        var currentOperand = ''
+        var currentoperator = ''
+
+
+
+            var NumberButtons = document.getElementsByClassName('button')
+            var OperatorButtons = document.getElementsByClassName('buttonoperator')
+
+
+
+            for(b in NumberButtons){
+                if(NumberButtons.hasOwnProperty(b)){
+                    NumberButtons[b].addEventListener("click", function(){
+                        add_number_to_current_operand(this.innerText)
+                        updateDisplay()
+
+                    }, false);
+                }
+            }
+
+
+            for(b in OperatorButtons){
+                if(OperatorButtons.hasOwnProperty(b)){
+                    OperatorButtons[b].addEventListener("click", function(){
+                    add_operator(this.innerText)
+                    updateDisplay()
+                    }, false);
+                }
+            }
+
+
+            function add_number_to_current_operand(number) {
+                currentOperand += number
+            }
+
+
+            function updateDisplay() {
+                document.getElementById("screen").innerHTML = (previousOperand + currentoperator + currentOperand)
+            }
+
+
+            function add_operator(operator) {
+                
+                if (previousOperand && currentOperand != '') {
+                    calculate()
+                }
+
+
+                if (currentOperand != '') {
+                    previousOperand = currentOperand
+                    currentOperand = ''
+                    currentoperator = operator
+                    updateDisplay()
+                    return
+                }
+
+
+            }
+
+    
+            function calculate() {
+                if (currentOperand == '') {return}
+                if (previousOperand == '') {return}
+                if (currentoperator == '') {return}
+
+                var firstoperand = parseInt(previousOperand)
+                var secoundoperand = parseInt(currentOperand)
+
+                if (currentoperator == "+") {
+                    previousOperand = ''
+                    currentOperand = firstoperand + secoundoperand
+                    currentoperator = ''
+                    updateDisplay()
+                    return
+                }
+
+                if (currentoperator == "÷") {
+
+                    previousOperand = ''
+                    currentOperand = firstoperand / secoundoperand
+                    currentoperator = ''
+                    updateDisplay()
+                    return
+                }
+
+                if (currentoperator == "*") {
+
+                    previousOperand = ''
+                    currentOperand = firstoperand * secoundoperand
+                    currentoperator = ''
+                    updateDisplay()
+                    return
+                }
+
+                if (currentoperator == "-") {
+
+                    previousOperand = ''
+                    currentOperand = firstoperand - secoundoperand
+                    currentoperator = ''
+                    updateDisplay()
+                    return
+                }
+
+            }
+
+            function reset() {
+                currentOperand = ''
+                previousOperand = ''
+                currentoperator = ''
+            }
+
+    </script>
+
+</body>
+</html>
+

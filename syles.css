@@ -1,0 +1,106 @@
+h1 {
+    text-align: center;
+    color: rgb(253, 253, 253);
+    font-family: sans-serif;
+}
+
+.footer:hover {
+    font-size: larger;
+}
+
+.screentext {
+    position: relative;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    font-family: sans-serif;
+}
+
+.calculatorbackground {
+    margin: auto;
+    width: 400px;
+    height: 600px;
+    position: relative;
+    background-color: rgb(66, 60, 60);
+    z-index: 0;
+    border-radius: 25px;
+}
+
+.screen {
+    border-radius: 25px;
+    z-index: 1;
+    position: absolute;
+    top: 125px;
+    right: 660px;
+    margin: auto;
+    width: 350px;
+    height: 175px;
+    background-color: white;
+}
+
+.footer {
+    font-size: large;
+    color: rgb(253, 253, 253);
+}
+
+.buttongrid {
+    z-index: 1;
+    grid-template: repeat(6, 1fr) / repeat(3, 1fr);
+    position: absolute;
+    width: 300px;
+    top: 325px;
+    right: 690px;
+    height: 300px;
+    margin: 5px;
+    display: grid;
+    grid-gap: 5px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.equalsbutton {
+    background-color: orange;
+    font-size: xx-large;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-radius: 10px;
+    color: white;
+
+}
+
+.equalsbutton:active {
+    font-size: x-large;
+}
+
+
+.buttonoperator {
+    background-color: orange;
+    font-size: xx-large;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-radius: 10px;
+    color: white;
+}
+
+
+.buttonoperator:active {
+    font-size: x-large;
+}
+
+.buttonoperator:hover {
+    background-color: rgb(250, 182, 54);
+}
+
+.button:hover {
+    background-color: rgb(107, 103, 97);
+}
+
+.button:active {
+
+    font-size: x-large;
+}
+.button {
+    color: white;
+    border-radius: 10px;
+    background-color: rgb(87, 84, 80);
+    font-size: xx-large;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
