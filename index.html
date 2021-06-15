@@ -19,8 +19,9 @@
 
         <div class="buttongrid"> 
             <button class="buttonoperator"> + </button>
+            <button onclick="reset()" class="buttonoperator"> ac </button>
+            <button onclick="remove_last_action()" class="equalsbutton"> del </button>
             <button class="buttonoperator"> - </button>
-            <button onclick="reset()" class="buttonoperator"> reset </button>
             <button class="button"> 1 </button>
             <button class="button"> 2 </button>
             <button class="buttonoperator"> * </button>
@@ -35,6 +36,7 @@
             <button class="button"> 8 </button>
             <button class="button"> 9 </button>
             <button class="button"> 0 </button>
+            <button class="button"> . </button>
 
 
         </div>
@@ -118,8 +120,8 @@
                 if (previousOperand == '') {return}
                 if (currentoperator == '') {return}
 
-                var firstoperand = parseInt(previousOperand)
-                var secoundoperand = parseInt(currentOperand)
+                var firstoperand = parseFloat(previousOperand)
+                var secoundoperand = parseFloat(currentOperand)
 
                 if (currentoperator == "+") {
                     previousOperand = ''
@@ -162,6 +164,16 @@
                 currentOperand = ''
                 previousOperand = ''
                 currentoperator = ''
+            }
+
+            function remove_last_action() {
+                if (currentOperand == '') {return}
+
+                var update = currentOperand.substring(0, currentOperand.length - 1);
+                currentOperand = update
+                console.log(update)
+                updateDisplay()
+
             }
 
     </script>
