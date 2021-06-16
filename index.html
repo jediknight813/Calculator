@@ -87,6 +87,7 @@
 
 
             function add_number_to_current_operand(number) {
+                if (currentOperand.includes('.') && number.includes('.')) {return}
                 currentOperand += number
             }
 
